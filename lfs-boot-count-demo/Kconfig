@@ -1,0 +1,18 @@
+# Zephyr storage medium demo
+
+mainmenu "Zephyr storage demo application"
+
+# Storage medium configuration
+choice STORAGE_MEDIUM
+    prompt "Storage medium configuration"
+
+config STORAGE_MEDIUM_SD_CARD
+    bool "SD card"
+
+config STORAGE_MEDIUM_NOR_FLASH
+    bool "NOR flash memory"
+
+endchoice # STORAGE_MEDIUM
+
+
+source "Kconfig.zephyr"

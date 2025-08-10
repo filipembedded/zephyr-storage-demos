@@ -1,0 +1,28 @@
+/ {
+	chosen {
+		zephyr,console = &cdc_acm_uart;
+		zephyr,shell-uart = &cdc_acm_uart;
+	};
+};
+
+&zephyr_udc0 {
+	cdc_acm_uart: cdc_acm_uart0 {
+		compatible = "zephyr,cdc-acm-uart";
+	};
+};
+
+&spi1 {
+    cs-gpios = <&gpioa 4 GPIO_ACTIVE_LOW>;
+
+	sdhc0: sdhc@0 {
+                compatible = "zephyr,sdhc-spi-slot";
+                reg = <0>;
+                status = "okay";
+                mmc {
+                    compatible = "zephyr,sdmmc-disk";
+                    disk-name = "DEMO_MOUNT_POINT";
+                    status = "okay";
+                };
+                spi-max-frequency = <24000000>;
+        };
+};
