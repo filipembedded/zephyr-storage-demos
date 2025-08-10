@@ -20,7 +20,7 @@ struct fs_mount_t main_fs_mount = {
     .flags = FS_MOUNT_FLAG_USE_DISK_ACCESS,
     .storage_dev = "SD_SPI",
 #elif CONFIG_STORAGE_MEDIUM_NOR_FLASH
-    .storage_dev = (void *)FIXED_PARTITION_ID(lfs_partition), //NOTE: Here maybe alias could be used
+    .storage_dev = (void *)FIXED_PARTITION_ID(lfs_partition),
 #endif
     .mnt_point = "/DEMO_MOUNT_POINT:",
 };
@@ -104,9 +104,9 @@ int main(void) {
     }
 
 #ifdef CONFIG_STORAGE_MEDIUM_SD_CARD
-    const struct device *storage_device = DEVICE_DT_GET(DT_NODELABEL(spiflash));
-#elif CONFIG_STORAGE_MEDIUM_NOR_FLASH
     const struct device *storage_device = DEVICE_DT_GET(DT_NODELABEL(sdhc0));
+#elif CONFIG_STORAGE_MEDIUM_NOR_FLASH
+    const struct device *storage_device = DEVICE_DT_GET(DT_NODELABEL(spiflash));
 #endif
 
     if (!device_is_ready(storage_device)) {
@@ -123,6 +123,4 @@ int main(void) {
     if (ret < 0) {
         LOG_ERR("Could not update boot count!");
     }
-
-    // NOTE: Print here the boot count to the console
 }
