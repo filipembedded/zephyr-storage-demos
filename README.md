@@ -9,6 +9,8 @@ This project is being built as a [workspace](https://docs.zephyrproject.org/4.0.
 
 3. Create a new Python virtual environment in the workspace, install west and configure zephyr-related dependencies.
 
+**Note:** The zsd-workspace directory does not need to be placed in your home directory; it can be located anywhere on the file system. 
+
 ```
 cd ~/zsd-workspace
 python3 -m venv .venv
@@ -20,7 +22,7 @@ west zephyr-export
 west packages pip --install
 west sdk install
 ```
-Note: On Windows, .venv activation is done different: 
+**Note:** On Windows, .venv activation is done different:
 ```
 .venv\Scipts\activate
 ```
