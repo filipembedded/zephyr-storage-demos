@@ -20,6 +20,11 @@ west zephyr-export
 west packages pip --install
 west sdk install
 ```
+Note: On Windows, .venv activation is done different: 
+```
+.venv\Scipts\activate
+```
+
 ## Demos
 ### lfs-boot-count-demo
 
