@@ -11,7 +11,7 @@ This project is being built as a [workspace](https://docs.zephyrproject.org/4.0.
 
 ```
 cd ~/zsd-workspace
-python3 -m venv install .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install west
 west init -l zephyr-storage-demos
@@ -19,7 +19,6 @@ west update
 west zephyr-export
 west packages pip --install
 west sdk install
-deactivate
 ```
 ## Demos
 ### lfs-boot-count-demo
@@ -30,9 +29,7 @@ This demo supports use of two storage mediums: **SD card** and **NOR SPI flash**
 
 ## Build
 ```
-cd ~/zsd-workspace
-source .venv/bin/activate
-cd zephyr-storage-demos
+cd ~/zsd-workspace/zephyr-storage-demos
 ```
 Configure the specific example using Kconfig (e.g. lfs-boot-count-demo):
 
